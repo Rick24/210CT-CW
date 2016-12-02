@@ -1,0 +1,47 @@
+FUNCTION_ADD(MA, MB)
+
+	for row <- 1 to Nrow
+
+		for column <- 1 to Ncolumn
+
+			outputMatrix = MA[row][column] + MB[row][column]
+
+
+FUNCTION_SUB(MA, MB)
+
+	for row <- 1 to Nrow
+
+		for column <- 1 to Ncolumn
+
+			outputMatrix = MA[row][column] - MB[row][column]
+
+
+FUNCTION_MULTI(MA, MB)
+
+	for row in A
+
+		for column in B
+
+			for element in each row/column (k)
+
+				part_answer = A[row][k] * B[column][k]
+					
+				total_answer = total_answer + part_answer
+
+			
+			outputMatrix[row][column] = total_answer
+
+
+formula_part1 = MULTIPLY_MATRIX(MB, MC)
+
+formula_part2 = 2 * ADD_MATRIX(MB, MC)
+
+MA = SUBTRACT_MATRIX(formula_part1, formula_part2)
+
+
+
+
+
+
+
+

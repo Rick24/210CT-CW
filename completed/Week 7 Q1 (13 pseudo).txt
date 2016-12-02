@@ -1,0 +1,37 @@
+CLASS node:
+	FUNCTION init:
+		name
+		adjacent
+
+	FUNCTION adjacent:
+		IF adjacent NOT IN FUNCTION
+		append adjacent
+		adjacent.sort
+
+CLASS graph:
+	FUNCTION init:
+		nodes <- empty list
+
+	FUNCTION linear search, value:
+		FOR element IN range of lenght of node list:
+		    IF node name = value:
+			RETURN element
+
+	FUNCTION edge:
+		adds edge to 2 nodes in both directions
+
+	FUNCTION add node:
+		append node
+
+	FUNCTION print graph:
+		FOR element IN nodes:
+			print node name + adjacent
+
+graph <- CLASS graph
+
+E <- list of node relationships
+
+FOR element IN E:
+	graph.FUNCTION edge add nodes before and after the element
+
+graph.FUNCTION print graph

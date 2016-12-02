@@ -1,0 +1,7 @@
+FUNCTION x:
+	w <- x. SPLIT FUNCTION
+	RS <- 'empty string'. JOIN FUNCTION(REVERSE FUNCTION w)
+	print RS
+
+x = INPUT 'string'
+FUNCTION x

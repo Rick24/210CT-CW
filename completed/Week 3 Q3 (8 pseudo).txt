@@ -1,0 +1,12 @@
+FUNCTION x:
+	V (array) <- string (a e i o u)
+	IF x:
+	      IF x(index 0) IN V:
+		    RETURN 'empty string' + FUNCTION x(index 1 to the rest of the string)
+	      ELSE:
+		    RETURN x(index 0) + FUNCTION x(index 1 to the rest fo the string)
+	ELSE:
+	      RETURN 'empty string'
+
+x = INPUT 'string'
+print FUNCTION x 

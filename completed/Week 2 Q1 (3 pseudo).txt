@@ -1,0 +1,6 @@
+IMPORT ALL FROM MATH
+
+FUNCTION x:
+	print round down (x^(1/2))) ^2
+
+FUNCTION interger INPUT'string' 

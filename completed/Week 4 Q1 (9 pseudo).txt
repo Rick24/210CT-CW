@@ -1,0 +1,29 @@
+list <- [intergers]
+
+low <- INPUT interger(string)
+high <- INPUT interger(string)
+
+FUNCTION list, low, high:
+	lenght <- lenght of list
+	mid <- ROUND of (lenght / 2)
+
+	IF lenght = 0:
+		RETURN FALSE
+
+	IF lenght = 1 and list(mid) != (low or high):
+		RETURN FALSE
+
+	IF list(mid) >= low and list(mid) <= high:
+		RETURN TRUE
+
+	ELSE/IF list(mid) > high:
+		RETURN FUNCTION list(everything before mid), low, high
+
+	ELSE/IF list(mid) < low:
+		RETURN FUNCTION list(everything after mid), low, high
+
+	ELSE:
+		RETURN FALSE
+
+print list
+print FUNCTION list, low, high

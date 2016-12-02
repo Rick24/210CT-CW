@@ -1,0 +1,16 @@
+a <- interger INPUT
+
+FUNCTION a, F <- 3
+	IF a < 2:
+	    RETURN FALSE
+	ELSE/IF a = 3 or a = 2:
+	    RETURN TRUE
+	ELSE/IF a % 2 = 0:
+	    RETURN FALSE
+	ELSE/IF a % F = 0:
+	    RETURN FALSE
+	ELSE/IF F > (a/2):
+	    RETURN TRUE
+	ELSE:
+	    RETURN FUNCTION a, F + 2
+print FUNCTION a
