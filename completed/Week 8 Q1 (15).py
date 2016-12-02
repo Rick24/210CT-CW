@@ -1,9 +1,6 @@
-#You either use an adjacency matrix or an adjacency list approach.
-#Also, write a function to add a new node and a function to add an edge.
-#Following that, implement the graph you have designed in the
-#programming language of your choice.
-#You may use your own linked list from previous labs, the STL LL,
-#or use a simple fixed size array (10 elements would be fine)
+#Implement Dijkstra’s algorithm for a weighted graph data structure
+#(you have to update your previous data structure so that it can deal
+#with weights)
 
 class Node(object):
 
@@ -72,6 +69,15 @@ class Graph(object):
               stack = [self.nodes[i]] + stack
         print(visited)
 
+    def dijkstras(self, start, end):
+        """serches the shortest path between 2 given nodes being a start and end node"""
+        path = []
+        history = []
+        #loop which will set the weight to infinity
+        #when a node has been checked it will be added to history list and
+        #the weight will be re assigned to the actual weight
+        #as the loop continues the history will save the nodes and values
+        
 
     def addnode(self, node):
         """appends nodes to the nodes list"""
@@ -98,6 +104,8 @@ for i in weights:
 graph.printgraph()
 #graph.breadthfirst(graph.nodes[0])
 #graph.depthfirst(graph.nodes[0])
-
+#start = graph.nodes['A']
+#end = graph.nodes['G']
+#print(graph.dijkstras(start, end))
         
     
