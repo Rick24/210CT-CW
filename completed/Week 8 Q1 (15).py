@@ -1,0 +1,103 @@
+#You either use an adjacency matrix or an adjacency list approach.
+#Also, write a function to add a new node and a function to add an edge.
+#Following that, implement the graph you have designed in the
+#programming language of your choice.
+#You may use your own linked list from previous labs, the STL LL,
+#or use a simple fixed size array (10 elements would be fine)
+
+class Node(object):
+
+    def __init__(self, name):
+        """initialises a node with a name and list of adjacent nodes as
+           the nodes attributes"""
+        self.name = name
+        self.adjacent = []
+
+    def addadjacent(self, adjacent, weight):
+        """joins 2 nodes together and sorts it"""
+        if adjacent not in self.adjacent:
+            self.adjacent.append((adjacent, weight))
+            self.adjacent.sort()
+
+class Graph(object):
+
+    def __init__(self):
+        """initialises the graph and saves them in a list"""
+        self.nodes = [] #list of nodes
+
+    def finder(self, value):
+        """looks at the index of node list and returns the index"""
+        for i in range(len(self.nodes)):
+            if self.nodes[i].name == value:
+                return i
+
+    def addedge(self, addleft, addright, weight):
+        """adds edge to 2 nodes in both directions"""
+        #create a variable for an index of a node
+        if self.finder(addleft) == None:
+            self.addnode(Node(addleft))
+        if self.finder(addright) == None:
+            self.addnode(Node(addright))
+        dexleft = self.finder(addleft)
+        dexright = self.finder(addright)
+        #adds edges to the nodes in both directions
+        self.nodes[dexleft].addadjacent(addright, weight)
+        self.nodes[dexright].addadjacent(addleft, weight)
+
+    def breadthfirst(self, node):
+        """attempt"""
+        queue = []
+        visited = []
+        queue.append(node)
+        while len(queue):
+          currentnode = queue.pop(0)
+          print(type(currentnode))
+          if currentnode not in visited:
+            visited.append(currentnode)
+            for i in currentnode.adjacent:
+                print(type(i))
+                queue.append(i)
+        print(visited)
+
+    def depthfirst(self, node):
+        """attepmt"""
+        visited = []
+        stack = [node]
+        while len(stack):
+          currentnode = stack.pop(0)
+          currentnode.reverse()
+          if currentnode not in visited:
+            visited.append(currentnode)
+            for i in temp:
+              stack = [self.nodes[i]] + stack
+        print(visited)
+
+
+    def addnode(self, node):
+        """appends nodes to the nodes list"""
+        self.nodes.append(node)
+
+    def printgraph(self):
+        """prints each nodes name and adjacent node to it"""
+        for i in self.nodes:
+            print(i.name, i.adjacent)
+
+graph = Graph()
+
+edges = ['AC', 'AB', 'BE', 'CF', 'CD', 'FI', 'DI', 'EH', 'HI', 'IG', 'JG', 'DB']
+weights = ['AC2', 'AB3', 'BE7', 'CF8', 'CD10', 'FI1', 'DI8', 'EH7', 'HI2', 'IG3', 'JG6', 'DB1']
+
+
+#edges = ['AB', 'AD', 'DC', 'BC']
+#for i in edges:
+#   graph.addedge(i[:1], i[1:])
+
+for i in weights:
+    graph.addedge(i[0],i[1],i[2])
+
+graph.printgraph()
+#graph.breadthfirst(graph.nodes[0])
+#graph.depthfirst(graph.nodes[0])
+
+        
+    
